@@ -1,0 +1,72 @@
+<div id="app">
+  <section class="section">
+    <div class="d-flex flex-wrap align-items-stretch">
+      <div class="col-lg-8 col-12 min-vh-100 background-walk-y position-relative overlay-gradient-bottom"
+        data-background="https://images.pexels.com/photos/2759806/pexels-photo-2759806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <div class="absolute-bottom-left index-2">
+          <div class="text-light p-5 pb-2">
+            <div class="mb-5 pb-3">
+              <h1 class="mb-2 display-4 font-weight-bold">The Smartest way to Automate</h1>
+              <h5 class="font-weight-normal text-muted-transparent">- Autointelli</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 min-vh-100 bg-white">
+        <div class="p-4 m-3">
+          <img src="../assets/img/auto-intelli-logo.png" alt="logo" class="mb-5 mt-2"
+            style="display: block; margin: auto;">
+
+          <div *ngIf="isLoginError" class="red-text center error-message text-center InvalieEmail">
+            Incorrect Email/Password or you need to Verify your email
+          </div>
+
+          <div class="CheckSubDomain">
+
+            <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmitd()">
+              <div class="form-group">
+                <label>Enter your Autointelli Subdomain</label>
+                <div class="input-group colorpickerinput">
+                  <input type="text" class="form-control" autofocus #verify_sub_domainsControl="ngModel"
+                    [(ngModel)]="sub_domains_model.verify_sub_domains" name="verify_sub_domains" required>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      .autointelli.com
+                    </div>
+                  </div>
+                </div>
+                <div
+                  *ngIf="verify_sub_domainsControl.errors && (verify_sub_domainsControl.invalid || verify_sub_domainsControl.touched)">
+                  <small class="text-danger"
+                    *ngIf="verify_sub_domainsControl.errors.required && verify_sub_domainsControl.touched">
+                    Subdomain is required</small>
+                </div>
+              </div>
+
+              <div class="form-group text-center">
+                <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-lg btn-icon icon-right"
+                  tabindex="4">
+                  Sign in
+                </button>
+              </div>
+
+              <div class="mt-5 text-center">
+                Don't have an account? <a routerLink='/create-new-one'>Create new one</a>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="text-center mt-5 text-small">
+            2020 &copy; Copyright Autointelli.
+            <div class="mt-2">
+              <a routerLink="/privacy_policy">Privacy Policy</a>
+              <div class="bullet"></div>
+              <a routerLink="/privacy_policy">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

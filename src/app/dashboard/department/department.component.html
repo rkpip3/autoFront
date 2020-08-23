@@ -1,0 +1,200 @@
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>
+
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+
+    <div class="section-header">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h1>Department</h1>
+        </div>
+
+        <!-- <a name="datetimes" class="btn btn-primary" ><i class="fas fa-calendar-week"></i></a> -->
+      </div>
+    </div>
+
+    <div class="orgsection">
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <h2>Add Department</h2>
+
+          <form #addOrganizationForm="ngForm" (ngSubmit)="OnaddDeptSubmit();addOrganizationForm.resetForm()">
+
+            <div class="form-group">
+              <label for="status">Select Organization</label>
+              <select class="form-control" name="status" [(ngModel)]="AddDept.org">
+                <!-- <option>--select--</option> -->
+                <option *ngFor="let x of orgInfo" [value]="x.id" [selected]="">{{x.OrganizationName}}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="DeptID">Department ID</label>
+              <input type="text" class="form-control" autofocus #OrganizationIDControl="ngModel"
+                [(ngModel)]="AddDept.DeptID" name="DeptID" required>
+              <div
+                *ngIf="OrganizationIDControl.errors && (OrganizationIDControl.invalid || OrganizationIDControl.touched)">
+                <small class="text-danger"
+                  *ngIf="OrganizationIDControl.errors.required && OrganizationIDControl.touched">
+                  Organization Id is required</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="DeptName">Department Name</label>
+              <input type="text" class="form-control" autofocus #OrganizationNameControl="ngModel"
+                [(ngModel)]="AddDept.DeptName" name="DeptName" required>
+              <div
+                *ngIf="OrganizationNameControl.errors && (OrganizationNameControl.invalid || OrganizationNameControl.touched)">
+                <small class="text-danger"
+                  *ngIf="OrganizationNameControl.errors.required && OrganizationNameControl.touched">
+                  Organization name is required</small>
+
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="Description">Description</label>
+              <input type="text" class="form-control" autofocus #DescriptionControl="ngModel"
+                [(ngModel)]="AddDept.Description" name="Description" required>
+              <div *ngIf="DescriptionControl.errors && (DescriptionControl.invalid || DescriptionControl.touched)">
+                <small class="text-danger" *ngIf="DescriptionControl.errors.required && DescriptionControl.touched">
+                  Description is required</small>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="Organization">Organization</label>
+              <input type="text" class="form-control" autofocus #OrganizationControl="ngModel"
+                [(ngModel)]="AddDept.Organization" name="Organization" required>
+              <div *ngIf="OrganizationControl.errors && (OrganizationControl.invalid || OrganizationControl.touched)">
+                <small class="text-danger" *ngIf="OrganizationControl.errors.required && OrganizationControl.touched">
+                  Organization is required</small>
+
+              </div>
+            </div>
+
+            <button [disabled]="addOrganizationForm.invalid" type="submit" class="btn btn-primary btn-lg">
+              <i class="far fa-plus-square"></i> Add Department
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="neworglist">
+        <div class="row">
+          <div class="col-md-12">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Department ID</th>
+                  <th scope="col">Department Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Organization</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dept of deptInfo">
+                  <!-- <td>{{dept.id}}</td> -->
+                  <td>{{dept.DeptID}}</td>
+                  <td>{{dept.DeptName}}</td>
+                  <td>{{dept.Description}}</td>
+                  <td>{{dept.org}}</td>
+                  <td>
+                    <button type="button" class="btn btn-primary" (click)="EditDeptFn(dept.id);open(content);">
+                      <i class="far fa-edit"></i> Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="DeleteDept(dept.id)"><i
+                        class="far fa-trash-alt"></i> Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <ng-template #content let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Department Update</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form #EditDeprtFormData="ngForm" (ngSubmit)="EditDeptFormDataSubmit();EditDeprtFormData.resetForm()">
+
+
+                  <div class="row">
+
+                    <!-- <p>ID : {{edit_dept_data.id}}</p> -->
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="status">Select Organization</label>
+                        <select class="form-control" name="status" [(ngModel)]="AddDept.org">
+                          <option *ngFor="let x of orgInfo" [value]="x.id" [selected]="x.id">{{x.OrganizationName}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="DeptID">Department ID</label>
+                        <input type="text" class="form-control" #Ed_DeptIDIDControl="ngModel"
+                          [(ngModel)]="edit_dept_data.DeptID" name="DeptID">
+                      </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="DeptName">Department Name</label>
+                        <input type="text" class="form-control" #Ed_DeptNameControl="ngModel"
+                          [(ngModel)]="edit_dept_data.DeptName" name="DeptName">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="Description">Description</label>
+                        <input type="text" class="form-control" #Ed_DescriptionControl="ngModel"
+                          [(ngModel)]="edit_dept_data.Description" name="Description">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="Organization">Organization</label>
+                        <input type="text" class="form-control" #Ed_OrganizationControl="ngModel"
+                          [(ngModel)]="edit_dept_data.Organization" name="Organization">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+              </div>
+            </ng-template>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

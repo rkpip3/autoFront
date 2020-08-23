@@ -1,0 +1,102 @@
+.main-login .row{
+    z-index: 1;
+    position: relative;
+}
+.main-login .col-lg-4{
+    border-radius: 15px;
+    margin: 40px 0px 30px auto;
+    box-shadow: 0px 0px 15px 15px #00000045;
+    background-color: #fff;
+}
+.main-login .form-row label{
+    margin-bottom: -0.1rem;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #3F51B5;
+}
+.main-login .col-lg-8 h1{
+    z-index: 3;
+    position: absolute;
+    top: 190px;
+    left: 45px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 55px;
+    text-shadow: 3px 3px 4px #0d336f;
+    line-height: 75px;
+}
+.main-login .col-lg-8 h4{
+    z-index: 3;
+    position: absolute;
+    top: 350px;
+    left: 45px;
+    color: #FFEB3B;
+    font-weight: 400;
+    font-size: 25px;
+    text-shadow: 3px 3px 4px #0d336f;
+    line-height: 75px;
+}
+.main-login .col-lg-4{
+    padding: 30px;
+}
+.main-login .btn{
+    padding: .375rem 1rem;
+    border-radius: 0rem;
+    width: 100%;
+}
+.main-login .form-row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.main-login .form-control{
+    border-radius: 0rem;
+    border: 0px;
+    border-bottom: 2px solid #efefef;
+    padding-left: 0px;
+}
+.main-login h6{
+    margin-bottom: 15px;
+    color: #673AB7;
+    text-align: center;
+}
+@media all and (min-width: 319px) and (max-width: 510px) {
+    .main-login .col-lg-8{
+        height: 150px;
+    }
+    .main-login .col-lg-8 h1 {
+        top: 10px;
+        left: 0px;
+        font-size: 30px;
+        line-height: 45px;
+        text-align: center;
+        margin: 15px;
+    }
+    .main-login .col-lg-8 h4 {
+        position: relative;
+        top: 100px;
+        left: 0px;
+        font-size: 15px;
+        line-height: 40px;
+        margin: 15px;
+        text-align: center;
+    }
+    .main-login .col-lg-4 {
+        margin: 40px 20px 20px 20px;
+        padding: 20px;
+    }
+}
+@media all and (min-width: 511px) and  (max-width: 768px) {
+    .main-login .col-lg-8 h1 {
+      top: 50px;
+      left: 0px;
+      font-size: 50px;
+      line-height: 75px;
+      margin: 15px;
+    } 
+    .main-login .col-lg-8 h4 {
+      top: 350px;
+      left: 16px;
+      font-size: 25px;
+      line-height: 35px;
+    }
+  }

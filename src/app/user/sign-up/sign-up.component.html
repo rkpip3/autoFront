@@ -1,0 +1,54 @@
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form> -->
+
+
+<form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+  <div class="row">
+
+      <div class="input-field col s12">
+        <input type="text" name="username" #username="ngModel" [(ngModel)]="user.username">
+        <label>username</label>
+      </div>
+
+
+      <div class="input-field col s12">
+        <input class="validate" type="text" name="email" #email="ngModel" [(ngModel)]="user.email">
+        <label data-error="Invalid email!">Email</label>
+      </div>
+
+
+    <div class="input-field col s12">
+      <input class="validate" type="text" name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" required>
+      <label data-error="Required field!">firstName</label>
+    </div>
+
+    <div class="input-field col s12">
+      <input class="validate" type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" required>
+      <label data-error="Required field!">lastName</label>
+    </div>
+
+    <!-- <div class="input-field col s12">
+      <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required minlength="3">
+      <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
+    </div> -->
+
+  </div>
+  <!-- [disabled]="!userRegistrationForm.valid" -->
+  <div class="row">
+    <div class="input-field col s12">
+      <button  class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+
+</form>

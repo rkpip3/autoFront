@@ -1,0 +1,377 @@
+<div id="app">
+  <div class="main-wrapper">
+    <div class="navbar-bg"></div>
+    <nav class="navbar navbar-expand-lg main-navbar">
+      <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+          <li><a href=" " data-toggle="sidebar" class="nav-link nav-link-lg"
+              style=" background:  ffffff; color:  3F51B5; border-radius: 2px; margin-left: 5px;"><i
+                class="fas fa-bars"></i></a></li>
+          <li><a href=" " data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a>
+          </li>
+        </ul>
+        <div class="search-element">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
+          <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+          <div class="search-backdrop"></div>
+          <div class="search-result">
+            <div class="search-header">
+              Histories
+            </div>
+            <div class="search-item">
+              <a href=" ">How to hack NASA using CSS</a>
+              <a href=" " class="search-close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="search-item">
+              <a href=" ">Kodinger.com</a>
+              <a href=" " class="search-close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="search-item">
+              <a href=" "> Stisla</a>
+              <a href=" " class="search-close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="search-header">
+              Result
+            </div>
+            <div class="search-item">
+              <a href=" ">
+                <img class="mr-3 rounded" width="30" src="../assets/img/products/product-3-50.png" alt="product">
+                oPhone S9 Limited Edition
+              </a>
+            </div>
+            <div class="search-item">
+              <a href=" ">
+                <img class="mr-3 rounded" width="30" src="../assets/img/products/product-2-50.png" alt="product">
+                Drone X2 New Gen-7
+              </a>
+            </div>
+            <div class="search-item">
+              <a href=" ">
+                <img class="mr-3 rounded" width="30" src="../assets/img/products/product-1-50.png" alt="product">
+                Headphone Blitz
+              </a>
+            </div>
+            <div class="search-header">
+              Projects
+            </div>
+            <div class="search-item">
+              <a href=" ">
+                <div class="search-icon bg-danger text-white mr-3">
+                  <i class="fas fa-code"></i>
+                </div>
+                Stisla Admin Template
+              </a>
+            </div>
+            <div class="search-item">
+              <a href=" ">
+                <div class="search-icon bg-primary text-white mr-3">
+                  <i class="fas fa-laptop"></i>
+                </div>
+                Create a new Homepage Design
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <ul class="navbar-nav navbar-right">
+        <li class="dropdown dropdown-list-toggle"><a href=" " data-toggle="dropdown"
+            class="nav-link notification-toggle nav-link-lg beep" style="color:  3F51B5;"><i
+              class="far fa-bell"></i></a>
+          <div class="dropdown-menu dropdown-list dropdown-menu-right">
+            <div class="dropdown-header">Notifications
+              <div class="float-right">
+                <a href=" ">Mark All As Read</a>
+              </div>
+            </div>
+            <div class="dropdown-list-content dropdown-list-icons">
+              <a href=" " class="dropdown-item dropdown-item-unread">
+                <div class="dropdown-item-icon bg-danger text-white">
+                  <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="dropdown-item-desc">
+                  Template update is available now!
+                  <div class="time text-primary">2 Min Ago</div>
+                </div>
+              </a>
+              <a href=" " class="dropdown-item">
+                <div class="dropdown-item-icon bg-info text-white">
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="dropdown-item-desc">
+                  <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+                  <div class="time">10 Hours Ago</div>
+                </div>
+              </a>
+              <a href=" " class="dropdown-item">
+                <div class="dropdown-item-icon bg-success text-white">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="dropdown-item-desc">
+                  <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                  <div class="time">12 Hours Ago</div>
+                </div>
+              </a>
+              <a href=" " class="dropdown-item">
+                <div class="dropdown-item-icon bg-danger text-white">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="dropdown-item-desc">
+                  Low disk space. Let's clean it!
+                  <div class="time">17 Hours Ago</div>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-footer text-center">
+              <a href=" ">View All <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href=" " data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, {{userClaims}}</div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-title">Logged in 5 min ago</div>
+            <a href="features-profile.html" class="dropdown-item has-icon">
+              <i class="far fa-user"></i> Profile
+            </a>
+            <a href="features-activities.html" class="dropdown-item has-icon">
+              <i class="fas fa-bolt"></i> Activities
+            </a>
+            <a href="features-settings.html" class="dropdown-item has-icon">
+              <i class="fas fa-cog"></i> Settings
+            </a>
+            <div class="dropdown-divider"></div>
+            <a (click)="Logout()" class="dropdown-item has-icon text-danger">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-sidebar">
+      <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+          <a routerLink="/organization"><img src="../assets/img/auto-intelli-240.png" alt="Brand logo"></a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+          <a routerLink="/organization"><img src="../assets/img/ai-logo-brain-60x60.png" alt="Brand logo"></a>
+        </div>
+        <ul class="sidebar-menu">
+          <!-- <li class="menu-header">Menu</li> -->
+          <li class="nav-item dropdown" [routerLinkActive]="['active']">
+            <a class="nav-link " routerLink="/organization"><i class="fas fa-laptop"></i><span>Organization</span></a>
+          </li>
+
+          <li class="nav-item dropdown" [routerLinkActive]="['active']">
+            <a class="nav-link " routerLink="/department"><i class="fas fa-laptop"></i><span>Department</span></a>
+          </li>
+
+          <li class="nav-item dropdown" [routerLinkActive]="['active']">
+            <a class="nav-link " routerLink="/projects"><i class="fas fa-laptop"></i><span>Projects</span></a>
+          </li>
+
+          <li class="nav-item dropdown" [routerLinkActive]="['active']">
+            <a class="nav-link " routerLink="/add_new_user"><i class="fas fa-laptop"></i><span>Add New User</span></a>
+          </li>
+
+          <li class="nav-item dropdown" [routerLinkActive]="['active']">
+            <a class="nav-link " routerLink="/business_process"><i class="fas fa-laptop"></i><span>Business Process</span></a>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a href=" " class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-project-diagram"></i>
+              <span>Workflows</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">Schedule Workflow</a></li>
+              <li><a class="nav-link" href="">Excute a Workflow</a></li>
+              <li><a class="nav-link" href="">Create/Edit Workflow</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href=" " class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-store"></i><span>Market
+                Place</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">Download Automation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href=" " class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-info-circle"></i>
+              <span>PIM</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">Credential Store</a></li>
+              <li><a class="nav-link" href="">Add/View Machines</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href=" " class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user-shield"></i>
+              <span>Administration</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">Invite Users</a></li>
+              <li><a class="nav-link" href="ad-system-status.html">System Status</a></li>
+              <li><a class="nav-link" href="ad-audit-log.html">Audit Log</a></li>
+              <li><a class="nav-link" href="ad-manage-users.html">Manage Users</a></li>
+              <li><a class="nav-link" href="AD-Integration.html">LDAP/AD Integration</a></li>
+              <li><a class="nav-link" href="manage-visa-servers.html">Manage Visa Servers</a></li>
+              <li><a class="nav-link" href="manage-department.html">Manage Departments</a></li>
+              <li><a class="nav-link" href="">Manage Projects</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href=" " class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-receipt"></i>
+              <span>Invoices</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">Overview</a></li>
+              <li><a class="nav-link" href="">Credit Balance</a></li>
+              <li><a class="nav-link" href="">Payment Details</a></li>
+              <li><a class="nav-link" href="">Invoice Address</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href=" " class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user-cog"></i>
+              <span>User</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="login.html">Login</a></li>
+              <li><a class="nav-link" href="forgot-password.html">Forgot Password</a></li>
+              <li><a class="nav-link" href="register.html">Signup</a></li>
+              <li><a class="nav-link" href="reset-password.html">Reset Password</a></li>
+              <li><a class="nav-link" href="">Admin Dashboard</a></li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <section class="section">
+        <div class="section-header">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <h1>Dashboard dd </h1>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <p><b>Day : </b><input type="text" name="datetimes" /> </p>
+            </div>
+            <!-- <a name="datetimes" class="btn btn-primary" ><i class="fas fa-calendar-week"></i></a> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-12" style="padding-right: 10px;">
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-primary">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>Deployed Workflows</h4>
+                </div>
+                <div class="card-body">
+                  20
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-12" style="padding-right: 10px; padding-left: 10px;">
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-danger">
+                <i class="far fa-user"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>Total Users</h4>
+                </div>
+                <div class="card-body">
+                  5
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-12" style="padding-right: 10px; padding-left: 10px;">
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-warning">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>Total Excutions</h4>
+                </div>
+                <div class="card-body">
+                  50
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-success">
+                <!-- <i class="fas fa-circle"></i> -->
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>Total Agents Connected</h4>
+                </div>
+                <div class="card-body">
+                  1
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Total Excutions</h4>
+                <div class="card-header-action">
+                  <div class="btn-group">
+                    <a href=" " class="btn btn-info">Week</a>
+                    <a href=" " class="btn">Month</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="myChart" height="82"></canvas>
+                <div class="statistic-details mt-sm-4">
+                  <div class="statistic-details-item">
+                    <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>
+                    <div class="detail-value">$243</div>
+                    <div class="detail-name">Today's Sales</div>
+                  </div>
+                  <div class="statistic-details-item">
+                    <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span>
+                      23%</span>
+                    <div class="detail-value">$2,902</div>
+                    <div class="detail-name">This Week's Sales</div>
+                  </div>
+                  <div class="statistic-details-item">
+                    <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</span>
+                    <div class="detail-value">$12,821</div>
+                    <div class="detail-name">This Month's Sales</div>
+                  </div>
+                  <div class="statistic-details-item">
+                    <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>
+                      19%</span>
+                    <div class="detail-value">$92,142</div>
+                    <div class="detail-name">This Year's Sales</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="main-footer">
+      <div class="footer-left"> 2020 &copy; Copyright Autointelli. All Rights Reserved.
+        <!-- <div class="bullet"></div> Ⓒ -->
+      </div>
+      <div class="footer-right">
+        1.0.0 | <a href="">Terms of Service </a> | <a href="">Privacy Policy</a>
+      </div>
+    </footer>
+  </div>
+</div>

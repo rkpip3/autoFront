@@ -1,0 +1,86 @@
+<div id="app">
+  <section class="section">
+    <div class="d-flex flex-wrap align-items-stretch">
+      <div class="col-lg-8 col-12 min-vh-100 background-walk-y position-relative overlay-gradient-bottom"
+        data-background="https://images.pexels.com/photos/2759806/pexels-photo-2759806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <div class="absolute-bottom-left index-2">
+          <div class="text-light p-5 pb-2">
+            <div class="mb-5 pb-3">
+              <h1 class="mb-2 display-4 font-weight-bold">The Smartest way to Automate</h1>
+              <h5 class="font-weight-normal text-muted-transparent">- Autointelli</h5>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 min-vh-100 bg-white">
+        <div class="p-4 m-3">
+          <img src="../assets/img/auto-intelli-logo.png" alt="logo" class="mb-5 mt-2"
+            style="display: block; margin: auto;">
+
+          <div *ngIf="isLoginError" class="red-text center error-message text-center InvalieEmail">
+            Incorrect email / password or you need to verify your email
+          </div>
+
+          <div *ngIf="isUserDisabled" class="red-text center error-message text-center InvalieEmail">
+            {{LoginMsg}}
+          </div>
+
+          <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit()">
+            <div class="form-group">
+              <label for="email">Email</label>
+
+              <input class="form-control" type="email" #UserNameControl="ngModel" [(ngModel)]="login.UserName"
+                name="UserName" placeholder="Enter Email" required tabindex="1"
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+              <div *ngIf="UserNameControl.errors && (UserNameControl.invalid || UserNameControl.touched)">
+                <small class="text-danger" *ngIf="UserNameControl.errors.required && UserNameControl.touched">
+                  email is required</small>
+                <small class="text-danger" *ngIf="UserNameControl.errors.pattern">Please provide a valid email
+                  address</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="d-block">
+                <label for="password" class="control-label">Password</label>
+              </div>
+              <input class="form-control" type="password" #PasswordControl="ngModel" [(ngModel)]="login.Password"
+                name="Password" placeholder="Enter Password" required tabindex="2">
+
+              <div *ngIf="PasswordControl.errors && (PasswordControl.invalid || PasswordControl.touched)">
+                <small class="text-danger" *ngIf="PasswordControl.errors.required && PasswordControl.touched">Enter
+                  password</small>
+              </div>
+
+            </div>
+
+            <div class="form-group text-right">
+              <a routerLink='/forgot-password' class="float-left mt-3">
+                Forgot Password?
+              </a>
+              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-lg btn-icon icon-right"
+                tabindex="4">
+                Login
+              </button>
+            </div>
+
+            <div class="mt-5 text-center">
+              Don't have an account? <a routerLink='/create-new-one'>Create new one</a>
+            </div>
+          </form>
+
+
+          <div class="text-center mt-5 text-small">
+            2020 &copy; Copyright Autointelli.
+            <div class="mt-2">
+              <a routerLink="/privacy_policy">Privacy Policy</a>
+              <div class="bullet"></div>
+              <a routerLink="/privacy_policy">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

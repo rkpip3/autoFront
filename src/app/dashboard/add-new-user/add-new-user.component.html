@@ -1,0 +1,189 @@
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h1>Add Users</h1>
+        </div>
+      </div>
+    </div>
+    <div class="orgsection">
+
+
+
+      <div class="neworglist">
+        <div class="row">
+          <div class="col-md-12">
+
+            <form #addUsersForm="ngForm" (ngSubmit)="OnaddNewUsersSubmit();addUsersForm.resetForm()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Emailaddress">Email address</label>
+                    <input type="email" class="form-control" autofocus #emailControl="ngModel"
+                      [(ngModel)]="AddNewUser_Data.email" name="Emailaddress" required placeholder="Enter your email"
+                      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="FirstName">First Name</label>
+                    <input type="text" class="form-control" autofocus #firstNameControl="ngModel"
+                      [(ngModel)]="AddNewUser_Data.firstName" name="FirstName" required
+                      placeholder="Enter your first name">
+                    <div *ngIf="firstNameControl.errors && (firstNameControl.invalid || firstNameControl.touched)">
+                      <small class="text-danger" *ngIf="firstNameControl.errors.required && firstNameControl.touched">
+                        First Name is required</small>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    <input type="text" class="form-control" autofocus #lastNameControl="ngModel"
+                      [(ngModel)]="AddNewUser_Data.lastName" name="LastName" required
+                      placeholder="Enter your last name">
+                    <div *ngIf="lastNameControl.errors && (lastNameControl.invalid || lastNameControl.touched)">
+                      <small class="text-danger" *ngIf="lastNameControl.errors.required && lastNameControl.touched">
+                        Last Name is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="UserName">UserName</label>
+                    <input type="text" class="form-control" autofocus #usernameControl="ngModel"
+                      [(ngModel)]="AddNewUser_Data.username" name="UserName" required
+                      Placeholder="Enter your user name">
+                    <div *ngIf="usernameControl.errors && (usernameControl.invalid || usernameControl.touched)">
+                      <small class="text-danger" *ngIf="usernameControl.errors.required && usernameControl.touched">
+                        Username is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Mobile">Mobile</label>
+                    <input type="number" class="form-control" autofocus #mobileControl="ngModel"
+                      [(ngModel)]="AddNewUser_Data.mobile" name="Mobile" required placeholder="Enter your Mobile">
+                  </div>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-user-plus"></i> Add User</button>
+            </form>
+
+            <ng-template #content let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Department Update</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form #EditDeprtFormData="ngForm" (ngSubmit)="EditDeptFormDataSubmit();EditDeprtFormData.resetForm()">
+                  <div class="row">
+                    <!-- <p>ID : {{edit_dept_data.id}}</p> -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="status">Select Organization</label>
+                        <select class="form-control" name="status" [(ngModel)]="AddDept.org">
+                          <option *ngFor="let x of orgInfo" [value]="x.id" [selected]="x.id">{{x.OrganizationName}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="DeptID">Department ID</label>
+                        <input type="text" class="form-control" #Ed_DeptIDIDControl="ngModel"
+                          [(ngModel)]="edit_dept_data.DeptID" name="DeptID">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="DeptName">Department Name</label>
+                        <input type="text" class="form-control" #Ed_DeptNameControl="ngModel"
+                          [(ngModel)]="edit_dept_data.DeptName" name="DeptName">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="Description">Description</label>
+                        <input type="text" class="form-control" #Ed_DescriptionControl="ngModel"
+                          [(ngModel)]="edit_dept_data.Description" name="Description">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="Organization">Organization</label>
+                        <input type="text" class="form-control" #Ed_OrganizationControl="ngModel"
+                          [(ngModel)]="edit_dept_data.Organization" name="Organization">
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Active User</th>
+              <th scope="col">Email</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of fullListofUser">
+              <td *ngIf="user.enabled == true" class="userActive"> <i class="far fa-check-circle"></i> Active User</td>
+              <td *ngIf="user.enabled != true" class="userInactive"> <i class="fas fa-ban"></i> Inactive User</td>
+              <td>{{user.email}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>
+                <button type="button" class="btn btn-primary" (click)="EditUser(user.id);">
+                  <i class="far fa-edit"></i> Edit</button>
+
+                <button type="button" class="btn btn-danger mrspace" (click)="DeleteUser(user.id)"><i
+                    class="far fa-trash-alt"></i> Delete</button>
+
+                <button *ngIf="user.enabled == true" type="button" class="btn btn-dark" (click)="DisabledUser(user.id)">
+                  <i class="fas fa-user-times"></i> Disable User
+                </button>
+
+                <button *ngIf="user.enabled != true" type="button" class="btn btn-dark" (click)="EnableUser(user.id)">
+                  <i class="fas fa-user-check"></i> Active User
+                </button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

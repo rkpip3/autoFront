@@ -1,0 +1,116 @@
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h1>Projects</h1>
+        </div>
+      </div>
+    </div>
+    <div class="orgsection">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Add Projects</h2>
+          <form #addProjectForm="ngForm" (ngSubmit)="OnAddProjectSubmit();addProjectForm.resetForm()">
+            <div class="form-group">
+              <label for="status">Select Department</label>
+              <select class="form-control" name="status" [(ngModel)]="addProject_data.department">
+                <option *ngFor="let x of deptInfo" [value]="x.id" [selected]="">{{x.DeptName}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="projectName">Project Name</label>
+              <input type="text" class="form-control" autofocus #projectNameControl="ngModel"
+                [(ngModel)]="addProject_data.projectName" name="projectName" required>
+              <div *ngIf="projectNameControl.errors && (projectNameControl.invalid || projectNameControl.touched)">
+                <small class="text-danger" *ngIf="projectNameControl.errors.required && projectNameControl.touched">
+                  Project Name is required</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" autofocus #descriptionControl="ngModel"
+                [(ngModel)]="addProject_data.description" name="description" required>
+              <div *ngIf="descriptionControl.errors && (descriptionControl.invalid || descriptionControl.touched)">
+                <small class="text-danger" *ngIf="descriptionControl.errors.required && descriptionControl.touched">
+                  Project Name is required</small>
+              </div>
+            </div>
+            <button [disabled]="addProjectForm.invalid" type="submit" class="btn btn-primary btn-lg">
+              <i class="far fa-plus-square"></i> Add Project
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="neworglist">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Project Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let projt of ProjectInfo">
+                  <td>{{projt.projectName}}</td>
+                  <td>{{projt.description}}</td>
+                  <td>{{projt.department}}</td>
+                  <td>
+                    <button type="button" class="btn btn-primary" (click)="EditProjectFn(projt.id);open(content);">
+                      <i class="far fa-edit"></i> Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="DeleteProject(projt.id)"><i
+                        class="far fa-trash-alt"></i> Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #content let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Project Update</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form #EditDeprtFormData="ngForm" (ngSubmit)="EditProjectFormDataSubmit();EditDeprtFormData.resetForm()">
+                  <div class="form-group">
+                    <label for="status">Select Department</label>
+                    <select class="form-control" name="status" [(ngModel)]="AddDept.org">
+                      <option *ngFor="let x of deptInfo" [value]="x.id" [selected]="x.id">{{x.DeptName}}
+                      </option>
+                    </select>
+                  </div>
+
+                  <p>this.AddDept.org; {{AddDept.org}}</p>
+                  <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" class="form-control" #projectNameControl="ngModel"
+                      [(ngModel)]="EditProject_Data.projectName" name="projectName">
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" #descriptionControl="ngModel"
+                      [(ngModel)]="EditProject_Data.description" name="description">
+                  </div>
+
+
+
+                  <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

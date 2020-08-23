@@ -1,0 +1,49 @@
+.error-message {
+  color: #ec7a08;
+  font-size: 12px;
+}
+
+.InvalieEmail {
+  border: 1px solid;
+  border-radius: 1px;
+  margin-bottom: 5px;
+  background-color: #fdf2e5;
+  padding: 10px;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  cursor: not-allowed;
+}
+.modal {
+  z-index: 410 !important;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  background-color: #0000;
+}
+
+
+.dropdown .dropdown-menu.show{
+  position: relative !important;
+  will-change: auto !important;
+  top: 0px !important;
+  left: 0px !important;
+  transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.mrspace{
+  margin-right: 10px;
+  margin-left:10px;
+}
+
+.userActive{
+  color: #47c363;
+}
+.userInactive{
+  color:#dc3545 ;
+}

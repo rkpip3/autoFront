@@ -1,0 +1,28 @@
+<p>profile works!</p>
+
+<button class="btn btn-primary" routerLink="/home">Home</button>
+
+<form #CreateNewUserForm="ngForm" (ngSubmit)="submintProfile()">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+
+        <div class="form-group">
+          <label for="email">project_name</label>
+          <input type="text" class="form-control" autofocus #project_nameControl="ngModel" [(ngModel)]="profileData.project_name" name="project_name">
+        </div>
+
+        <div class="form-group">
+          <label for="project_dept">project_dept</label>
+          <input type="text" class="form-control" autofocus #project_deptControl="ngModel" [(ngModel)]="profileData.project_dept" name="project_dept">
+        </div>
+
+        <button type="submit" class="btn btn-primary"> Save</button>
+
+      </div>
+    </div>
+  </div>
+
+
+</form>

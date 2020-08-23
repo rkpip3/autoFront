@@ -1,0 +1,215 @@
+<div id="app">
+  <section class="section register-form">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+          <div class="login-brand">
+            <img src="../assets/img/auto-intelli-240.png" alt="logo">
+          </div>
+          <div class="card card-primary">
+            <div class="card-body" style="padding: 0px;">
+
+              <form #CreateNewUserForm="ngForm" (ngSubmit)="OnCreateNewUserFormSubmit()">
+                <div class="tab-content no-padding" id="myTab2Content">
+                  <h5 style="text-align: center;
+                border-bottom: 1px solid #efefef;
+                padding-bottom: 20px;">Start Your Autointelli Trail</h5>
+
+
+                  <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="log-tab1" data-toggle="tab" href="#log1" role="tab"
+                        aria-controls="log1" aria-selected="true" style="padding: 20px; color: #607D8B;"><span style="display: inline-block; width: 35px; height: 35px; background: #7180f0; color: #fff;
+                      padding: 5px 9px; border-radius: 17px; margin-right: 12px;">01</span> Email</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="log-tab2" data-toggle="tab" href="#log2" role="tab" aria-controls="log2"
+                        aria-selected="false" style="padding: 20px; color: #607D8B;"><span style="display: inline-block; width: 35px; height: 35px; background: #7180f0; color: #fff;
+                      padding: 5px 9px; border-radius: 17px; margin-right: 12px;">02</span> Name</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="log-tab3" data-toggle="tab" href="#log3" role="tab" aria-controls="log3"
+                        aria-selected="false" style="padding: 20px; color: #607D8B;"><span style="display: inline-block; width: 35px; height: 35px; background: #7180f0; color: #fff;
+                      padding: 5px 9px; border-radius: 17px; margin-right: 12px;">03</span> Contact</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-pane fade show active" id="log1" role="tabpanel" aria-labelledby="log-tab1">
+
+                    <div class="form-group">
+                      <label for="email">Work Mail</label>
+
+                      <input type="email" class="form-control" autofocus #emailControl="ngModel"
+                        [(ngModel)]="createnew.email" name="email" required
+                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+                      <div *ngIf="emailControl.errors && (emailControl.invalid || emailControl.touched)">
+                        <small class="text-danger" *ngIf="emailControl.errors.required && emailControl.touched">
+                          email is required</small>
+                        <small class="text-danger" *ngIf="emailControl.errors.pattern">Please provide a valid email
+                          address</small>
+                      </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="username">User Name</label>
+                      <input type="text" class="form-control" autofocus #usernameControl="ngModel"
+                        [(ngModel)]="createnew.username" name="username" required>
+
+                      <div *ngIf="usernameControl.errors && (usernameControl.invalid || usernameControl.touched)">
+                        <small class="text-danger" *ngIf="usernameControl.errors.required && usernameControl.touched">
+                          User Name is required</small>
+                      </div>
+
+
+                    </div>
+
+                    <div class="form-group" style="text-align: end;">
+                      <a routerLink='/verification_login' class="btn btn-icon icon-right btn-primary">
+                        <i class="fas fa-home"></i> Login</a>
+                      <a class="btn btn-icon icon-right btn-primary">Next <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="log2" role="tabpanel" aria-labelledby="log-tab2">
+                    <div class="form-group">
+                      <label for="firstname">Fisrt Name</label>
+                      <input type="text" class="form-control" autofocus #firstnameControl="ngModel"
+                        [(ngModel)]="createnew.firstname" name="firstname" required>
+
+                      <div *ngIf="firstnameControl.errors && (firstnameControl.invalid || firstnameControl.touched)">
+                        <small class="text-danger" *ngIf="firstnameControl.errors.required && firstnameControl.touched">
+                          Fisrt Name is required</small>
+                      </div>
+
+
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname">Last Name</label>
+                      <input type="text" class="form-control" autofocus #lastnameControl="ngModel"
+                        [(ngModel)]="createnew.lastname" name="lastname" required>
+                      <div *ngIf="lastnameControl.errors && (lastnameControl.invalid || lastnameControl.touched)">
+                        <small class="text-danger" *ngIf="lastnameControl.errors.required && lastnameControl.touched">
+                          Last Name is required</small>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="phonenumber">Phone Number</label>
+                      <input type="number" class="form-control" autofocus #phonenumberControl="ngModel"
+                        [(ngModel)]="createnew.phonenumber" name="phonenumber" required minlength=10>
+
+
+                      <div
+                        *ngIf="phonenumberControl.errors && (phonenumberControl.invalid || phonenumberControl.touched)">
+                        <small class="text-danger"
+                          *ngIf="phonenumberControl.errors.required && phonenumberControl.touched">
+                          Phone Number is required</small>
+                        <small class="text-danger"
+                          *ngIf="phonenumberControl.errors.minlength  && phonenumberControl.touched">
+                          Phone Number min 10 digits</small>
+
+                        <small class="text-danger"
+                          *ngIf="phonenumberControl.errors.maxlength  && phonenumberControl.touched">
+                          Phone Number max 10 digits</small>
+                      </div>
+                    </div>
+
+                    <div class="form-group" style="text-align: end;">
+                      <a routerLink='/verification_login' class="btn btn-icon icon-right btn-primary">
+                        <i class="fas fa-home"></i> Login</a>
+                      <a class="btn btn-icon icon-right btn-primary">Next <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="log3" role="tabpanel" aria-labelledby="log-tab3">
+                    <div class="row">
+                      <div class="form-group col-6">
+                        <label for="companyname">Company Name</label>
+
+                        <input type="text" class="form-control" autofocus #companynameControl="ngModel"
+                          [(ngModel)]="createnew.companyname" name="companyname" required>
+
+                        <div
+                          *ngIf="companynameControl.errors && (companynameControl.invalid || companynameControl.touched)">
+                          <small class="text-danger"
+                            *ngIf="companynameControl.errors.required && companynameControl.touched">
+                            Company Name is required</small>
+                        </div>
+
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="noofemp">Number of Employees</label>
+                        <select class="form-control" required #noofempControl="ngModel" [(ngModel)]="createnew.noofemp"
+                          name="noofemp">
+                          <option value="">-- Select --</option>
+                          <option value="1-to-50">1 to 50</option>
+                          <option value="50-to-100">50 to 100</option>
+                          <option value="100-to-250">100 to 250</option>
+                          <option value="250-to-500">250 to 500</option>
+                          <option value="500-to-1500">500 to 1500</option>
+                          <option value="1500-to-15000">1500 to 15000</option>
+                        </select>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Your Autointelli subdomain</label>
+                      <div class="input-group colorpickerinput">
+
+                        <input type="text" class="form-control" autofocus #autointelliSubdomainControl="ngModel"
+                          [(ngModel)]="createnew.autointelliSubdomain" name="autointelliSubdomain" required>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            .autointelli.com
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        *ngIf="autointelliSubdomainControl.errors && (autointelliSubdomainControl.invalid || autointelliSubdomainControl.touched)">
+                        <small class="text-danger"
+                          *ngIf="autointelliSubdomainControl.errors.required && autointelliSubdomainControl.touched">
+                          Subdomain is required</small>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password" class="d-block">Create Password</label>
+                      <input type="password" class="form-control pwstrength" autofocus #passwordControl="ngModel"
+                        [(ngModel)]="createnew.password" name="password" required>
+                      <div id="pwindicator" class="pwindicator">
+                        <div class="bar"></div>
+                        <div class="label"></div>
+                      </div>
+
+                      <div *ngIf="passwordControl.errors && (passwordControl.invalid || passwordControl.touched)">
+                        <small class="text-danger" *ngIf="passwordControl.errors.required && passwordControl.touched">
+                          Password is required</small>
+                      </div>
+
+                    </div>
+                    <div class="form-group" style="text-align: end;">
+                      <button [disabled]="CreateNewUserForm.invalid" type="submit" class="btn btn-primary btn-lg">
+                        Register
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+          <div class="simple-footer">
+            2020 &copy; Copyright Autointelli. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

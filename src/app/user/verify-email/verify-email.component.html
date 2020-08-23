@@ -1,0 +1,41 @@
+<div class="email-verify">
+  <div class="container">
+    <div class="wrap-login">
+      <img routerLink="/login" src="http://autointelli.com/image/auto-intelli-logo.png" alt="autointelli-brand">
+      <div class="content">
+        <hr>
+        <h5>Your trail awaits</h5>
+        <p style="color: #313131;">you should see a verification link in your email (it might be in your spam folder).
+          You'll need to verify your email to access Autointelli.com</p>
+        <p (click)="ShowInpuforEmailVerification()" style="color: #703af0;cursor: pointer;">click here if you didn't get
+          an email from <a>Autointelli.</a> or <a routerLink="/login">go to login</a></p>
+        <div class="showEmailVerify" *ngIf="showHideEmail">
+          <form #verifyEmailForm="ngForm" class="col s12 white" (ngSubmit)="OnVerifyEmail()">
+
+            <div class="form-group">
+              <label for="email">Enter Email ID</label>
+
+              <input type="email" class="form-control" autofocus #emailControl="ngModel" [(ngModel)]="reSendEmail.email"
+                name="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+              <div *ngIf="emailControl.errors && (emailControl.invalid || emailControl.touched)">
+                <small class="text-danger" *ngIf="emailControl.errors.required && emailControl.touched">
+                  email is required</small>
+                <small class="text-danger" *ngIf="emailControl.errors.pattern">Please provide a valid email
+                  address</small>
+              </div>
+
+            </div>
+
+            <button [disabled]="verifyEmailForm.invalid" type="submit"
+              class="btn btn-primary btn-lg btn-icon icon-right">
+              Resend verification email
+            </button>
+          </form>
+        </div>
+        <hr>
+        <p class="copyright">@ Autointelli2020. | <a href="">Priavcy Policy</a> | <a href="">Terms & Conditions</a></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.orgsection{
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+
+.neworglist {
+  margin-top: 20px;
+  margin-Bottom:20px;
+  background-color: #cccccc0f;
+  padding: 10px;
+}
+
+.addUSerCss .form-control{
+  font-size: 11px !important;
+  margin-top: 10px !important;
+}
+
+.diagram-container {
+  height: 500px;
+  width: 100%;
+}
+
+.diagram-parent {
+  height: 400px;
+  border: solid 3px #EEE;
+  position: relative;
+}
+
+.import-error {
+  color: red;
+  padding: 20px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}

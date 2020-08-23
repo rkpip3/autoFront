@@ -1,0 +1,95 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.email-verify {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.email-verify {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #ececec;
+}
+
+.wrap-login {
+  width: 55%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* padding: 177px 130px 177px 95px; */
+  padding: 25px 45px 25px 45px;
+  margin: 0px auto;
+}
+.content h5 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+img {
+  width: 35%;
+  margin-bottom: 0px;
+}
+.copyright {
+  text-align: center;
+  color: #b1b1b1;
+  margin: 20px 0px 0px 0px;
+  font-size: 14px;
+}
+.copyright a {
+  color: #73deff;
+}
+
+@media (max-width: 992px) {
+  .wrap-login {
+    padding: 177px 90px 33px 85px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-login {
+    padding: 100px 80px 33px 80px;
+  }
+}
+@media (max-width: 576px) {
+  .wrap-login {
+    padding: 100px 15px 33px 15px;
+  }
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.showEmailVerify {
+  margin: 10px 0px;
+}
+
+.showEmailVerify button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
